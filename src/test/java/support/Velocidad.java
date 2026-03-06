@@ -1,0 +1,85 @@
+package support;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.util.List;
+import java.util.Set;
+
+public class Velocidad extends RemoteWebDriver {
+    private final WebDriver driver;
+    private long demora = 80;
+
+    public Velocidad(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void establecerDemora(long demora) {
+        this.demora = demora;
+    }
+
+    private void reducirVelocidad() {
+        try {
+            Thread.sleep(demora);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void get(String url) {
+        reducirVelocidad();
+        driver.get(url);
+    }
+    @Override
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+    @Override
+    public String getTitle() {
+        return driver.getTitle();
+    }
+    @Override
+    public List<WebElement> findElements(By by) {
+        reducirVelocidad();
+        return driver.findElements(by);
+    }
+    @Override
+    public WebElement findElement(By by) {
+        reducirVelocidad();
+        return driver.findElement(by);
+    }
+    @Override
+    public String getPageSource() {
+        return driver.getPageSource();
+    }
+    @Override
+    public void close() {
+        driver.close();
+    }
+    @Override
+    public void quit() {
+        driver.quit();
+    }
+    @Override
+    public Set<String> getWindowHandles() {
+        return driver.getWindowHandles();
+    }
+    @Override
+    public String getWindowHandle() {
+        return driver.getWindowHandle();
+    }
+    @Override
+    public TargetLocator switchTo() {
+        return driver.switchTo();
+    }
+    @Override
+    public Navigation navigate() {
+        return driver.navigate();
+    }
+    @Override
+    public Options manage() {
+        return driver.manage();
+    }
+}
