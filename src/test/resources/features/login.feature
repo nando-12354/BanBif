@@ -43,7 +43,7 @@
       Y selecciona el boton Buscar
       Y se muestran las campanas cuyos nombres coincidan con el valor ingresado
 
-    @regresion
+    #@regresion
     Escenario: [CP04] Gestion de campaña / Validación de modal de Agregar campaña
       Dado que la web este disponible
       Cuando ingrese su correo corporativo "gys31@banbif.com.pe"

@@ -55,7 +55,7 @@ public class CampanaDefinition {
     }
 
     @Y("el usuario selecciona el boton Agregar campana")
-    public void elUsuarioSeleccionaElBotonAgregarCampana() {
+    public void elUsuarioSeleccionaElBotonAgregarCampana() throws InterruptedException {
         campana.clicAgregarCampana();
     }
 
@@ -63,7 +63,7 @@ public class CampanaDefinition {
     public void seMuestraUnModalConUnFormularioConLosSiguientesCamposObligatorios(DataTable campos) {
         List<String> opciones = campos.asList();
         for (String opcion : opciones) {
-            campana.validarOpciones(opcion);
+            campana.validarOpcionesModal(opcion);
         }
     }
 }
